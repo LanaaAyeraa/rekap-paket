@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Download index.html</title>
+  <style>
+    .btn-download {
+      display: inline-block;
+      padding: 14px 24px;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .btn-download:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <button id="downloadBtn" class="btn-download">⬇️ Download File index.html (GitHub Pages)</button>
+
+  <script>
+    const htmlCode = `<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Rekap Data Paket</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary:#2563eb; --success:#16a34a; --warning:#ea580c; --danger:#dc2626; --info:#0891b2; --text:#1e293b; }
+    * { box-sizing:border-box; }
+    body { width:100%; margin:0; color:var(--text); font-family:"DM Sans",sans-serif; background: #f8fafc; }
+    button,input,select,textarea { font:inherit; }
+    button { cursor:pointer; border:0; transition:background .2s ease,transform .2s ease,opacity .2s ease; }
+    button:hover:not(:disabled) { transform:translateY(-1px); }
+    button:disabled { cursor:not-allowed; opacity:.65; }
+    .app-shell { width:100%; max-width:1000px; margin:0 auto; padding:28px; }
+    .header-box,.card { background:#fff; border-radius:14px; box-shadow:0 6px 18px rgba(15,23,42,.08); }
+    .header-box { padding:24px; margin-bottom:24px; text-align:center; }
+    .header-box h1 { margin:0; }
+    .info-jadwal { margin-top:14px; padding:14px; border-radius:10px; font-weight:600; background: #e0f2fe; color: #0369a1; }
+    .total-badge-header { display:inline-block; margin-top:12px; padding:8px 16px; border-radius:20px; font-size:14px; font-weight:700; background: #2563eb; color: #fff; }
+    .card { padding:26px; margin-bottom:24px; }
+    .tab-menu { display:flex; gap:12px; overflow-x:auto; margin-bottom:24px; padding-bottom:7px; border-bottom:2px solid #cbd5e1; }
+    .tab-btn { flex:0 0 auto; padding:13px 20px; border-radius:9px 9px 0 0; background:#e2e8f0; color:#475569; font-weight:600; }
+    .tab-btn.active { background:#2563eb; color:#fff; }
+    .sub-tab-menu { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:18px; }
+    .sub-tab-btn { padding:10px 16px; border:1px solid #cbd5e1; border-radius:22px; background:#f1f5f9; color:#475569; font-size:14px; font-weight:600; }
+    .sub-tab-btn.active { border-color:#0891b2; background:#0891b2; color:#fff; }
+    .tab-content { display:none; }
+    .tab-content.active { display:block; }
+    .form-group { margin-bottom:22px !important; }
+    label { display:block !important; margin-bottom:10px !important; font-weight:700 !important; font-size:16px !important; color:#1e293b !important; }
+    input[type="text"], input[type="date"], select, textarea { width:100% !important; min-height:52px !important; padding:12px 18px !important; border:2px solid #94a3b8 !important; border-radius:10px !important; font-size:16px !important; background-color:#ffffff !important; color:#0f172a !important; box-shadow:0 2px 4px rgba(0,0,0,.04) !important; outline:none !important; }
+    input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus { border-color:#2563eb !important; box-shadow:0 0 0 4px rgba(37,99,235,.2) !important; }
+    textarea { min-height:170px !important; resize:vertical; font-family:"DM Sans",sans-serif; }
+    .btn-primary,.btn-success,.btn-info,.btn-danger,.btn-cancel { border-radius:9px; font-weight:600; }
+    .btn-primary { width:100%; padding:13px 18px; background:#2563eb; color:#fff; }
+    .btn-success { padding:13px 18px; background:#16a34a; color:#fff; }
+    .btn-info { padding:13px 18px; background:#0891b2; color:#fff; font-size:14px; }
+    .btn-danger { padding:8px 12px; background:#dc2626; color:#fff; font-size:13px; }
+    .btn-cancel { padding:8px 12px; background:#e2e8f0; color:#334155; font-size:13px; }
+    .table-container { overflow-x:auto; }
+    table { width:100%; margin-top:14px; border-collapse:collapse; font-size:15px; }
+    th,td { padding:14px 12px; border:1px solid #e2e8f0; text-align:left; vertical-align:middle; }
+    th { background:#f1f5f9; white-space:nowrap; }
+    .badge { display:inline-block; padding:4px 8px; border-radius:4px; font-size:12px; font-weight:600; }
+    .badge-success { background:#dcfce7; color:#15803d; }
+    .badge-warning { background:#ffedd5; color:#c2410c; }
+    .badge-danger { background:#fee2e2; color:#b91c1c; }
+    .alert { display:none; margin-bottom:15px; padding:12px; border-radius:6px; }
+    .alert.show { display:block; }
+    .alert-success { border:1px solid #86efac; background:#dcfce7; color:#15803d; }
+    .alert-error { border:1px solid #fca5a5; background:#fee2e2; color:#b91c1c; }
+    .stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-bottom:20px; }
+    .stat-card { padding:15px; border:1px solid #e2e8f0; border-radius:8px; background:#f8fafc; text-align:center; }
+    .stat-card h3 { margin:0 0 5px; color:#64748b; font-size:13px; }
+    .stat-value { color:#0f172a; font-size:22px; font-weight:700; }
+    .section-title { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
+    .section-title h2 { margin:0; }
+    .table-info-sub { color:#64748b; font-size:13px; font-weight:600; }
+    .last-input-box { margin-top:15px; padding:12px 15px; border-left:4px solid #2563eb; border-radius:6px; background:#f1f5f9; font-size:13px; }
+    .last-input-title { margin-bottom:4px; color:#334155; font-weight:700; }
+    .last-input-detail { color:#475569; }
+    .empty-row { padding:22px; color:#94a3b8; text-align:center; }
+    .hidden-state { display:none !important; }
+    .import-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .import-panel { padding:16px; border:1px dashed #94a3b8; border-radius:8px; background:#f8fafc; }
+    .import-panel h3 { margin:0 0 12px; }
+    .mode-row { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0; }
+    .mode-row label { display:flex; align-items:center; gap:6px; margin:0; font-size:13px; }
+    .mode-row input { width:auto; }
+    .helper-text { margin:8px 0 0; color:#64748b; font-size:12px; line-height:1.5; }
+    .csv-display-box { margin-top:20px; padding:20px; border:2px solid #0891b2; border-radius:12px; background:#f0fdf4; }
+    @media (max-width:640px) {
+      .app-shell { padding:14px; }
+      .card { padding:18px; }
+      .header-box { padding:20px 16px; }
+      .section-title { align-items:flex-start; }
+      .section-title > button { width:100%; }
+      .tab-btn { padding:11px 14px; font-size:14px; }
+      .import-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header-box">
+      <h1 class="font-bold" style="color: rgb(30, 41, 59); font-size: 28px;">📦 Sistem Rekap Data Paket</h1>
+      <div class="info-jadwal"><span id="infoHariIni"></span></div>
+      <div class="total-badge-header">
+        <span>📦 Total Keseluruhan Data Paket: </span><span id="totalHeaderCount">0</span>
+      </div>
+    </header>
+
+    <div id="notifAlert" class="alert alert-success" role="status"><span id="notifText"></span></div>
+
+    <nav class="tab-menu">
+      <button type="button" class="tab-btn active" data-tab="tabInput">📥 Input Paket</button>
+      <button type="button" class="tab-btn" data-tab="tabLive">📋 Preview Data Live</button>
+      <button type="button" class="tab-btn" data-tab="tabRekap">📊 Rekap &amp; Periodik</button>
+      <button type="button" class="tab-btn" data-tab="tabImport">📁 Import &amp; Export</button>
+    </nav>
+
+    <main>
+      <!-- TAB 1: INPUT -->
+      <section id="tabInput" class="tab-content active">
+        <div class="card">
+          <h2>Input Paket Masuk</h2>
+          <form id="paketForm" style="margin-top:20px;">
+            <div class="form-group">
+              <label for="tanggal">Tanggal Rekap / Paket Masuk</label>
+              <input id="tanggal" type="date" required="">
+            </div>
+            <div class="form-group">
+              <label for="nama">Nama Penerima</label>
+              <input id="nama" type="text" required="" placeholder="Masukkan nama siswa/penerima">
+            </div>
+            <div class="form-group">
+              <label for="kelas">Kelas</label>
+              <select id="kelas" required="">
+                <option value="">-- Pilih Kelas --</option>
+                <option value="12">12</option><option value="11">11</option><option value="10">10</option>
+                <option value="9A">9A</option><option value="9B">9B</option><option value="9C">9C</option><option value="9D">9D</option><option value="9E">9E</option>
+                <option value="8A">8A</option><option value="8B">8B</option><option value="8C">8C</option><option value="8D">8D</option><option value="8E">8E</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="keterangan">Keterangan (Opsional / Buat Luar Jadwal)</label>
+              <input id="keterangan" type="text" placeholder="Contoh: Paket Online, Urgen, Titip Guru">
+            </div>
+            <button id="btnSubmit" type="submit" class="btn-primary">Simpan Data Paket</button>
+          </form>
+          <aside class="last-input-box">
+            <div class="last-input-title">📌 Input Terakhir:</div>
+            <div id="lastInputDetail" class="last-input-detail"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TAB 2: LIVE PREVIEW -->
+      <section id="tabLive" class="tab-content">
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h2>✅ Preview Data Sesuai Jadwal</h2>
+              <div class="table-info-sub">Total <span id="countSesuaiLive">0</span> paket sesuai jadwal hari rekap</div>
+            </div>
+            <button type="button" class="btn-success" data-export="sesuai">Buka Teks CSV (Sesuai)</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>Tanggal Rekap</th><th>Nama</th><th>Kelas</th><th>Status</th><th>Aksi</th></tr>
+              </thead>
+              <tbody id="tabelSesuai"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h2>⚠️ Preview Data Di Luar Jadwal</h2>
+              <div class="table-info-sub">Total <span id="countLuarLive">0</span> paket di luar jadwal hari rekap</div>
+            </div>
+            <button type="button" class="btn-success" data-export="luar">Buka Teks CSV (Di Luar)</button>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>Tanggal Rekap</th><th>Nama</th><th>Kelas</th><th>Keterangan</th><th>Legalitas Status</th><th>Aksi</th></tr>
+              </thead>
+              <tbody id="tabelLuar"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: REKAP PERIODIK -->
+      <section id="tabRekap" class="tab-content">
+        <div class="card">
+          <div class="section-title">
+            <h2>📊 Rekapitulasi Data Paket</h2>
+            <button type="button" class="btn-info" data-export="semua">📊 Buka Teks CSV (Semua Data)</button>
+          </div>
+          <div class="sub-tab-menu">
+            <button type="button" class="sub-tab-btn active" data-filter="hari">Per Hari Ini</button>
+            <button type="button" class="sub-tab-btn" data-filter="minggu">Per Minggu Ini</button>
+            <button type="button" class="sub-tab-btn" data-filter="bulan">Per Bulan Ini</button>
+            <button type="button" class="sub-tab-btn" data-filter="semua">Semua Data</button>
+          </div>
+          <div class="stat-grid">
+            <div class="stat-card"><h3>Total Paket Filtered</h3><div id="statTotal" class="stat-value">0</div></div>
+            <div class="stat-card"><h3>Sesuai Jadwal</h3><div id="statSesuai" class="stat-value" style="color:#16a34a">0</div></div>
+            <div class="stat-card"><h3>Di Luar Jadwal</h3><div id="statLuar" class="stat-value" style="color:#ea580c">0</div></div>
+          </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr><th>Tanggal Rekap</th><th>Nama</th><th>Kelas</th><th>Kategori</th><th>Keterangan</th></tr>
+              </thead>
+              <tbody id="tabelRekapPeriodik"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: IMPORT & EXPORT -->
+      <section id="tabImport" class="tab-content">
+        <div class="card">
+          <div class="section-title">
+            <div>
+              <h2>📁 Import &amp; Export Data</h2>
+              <p class="helper-text">Pilih tombol di bawah untuk melihat teks CSV atau melakukan backup JSON.</p>
+            </div>
+            <button id="backupJsonButton" type="button" class="btn-info">⬇️ Export Backup JSON</button>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-bottom:15px; flex-wrap:wrap;">
+            <button type="button" class="btn-success" data-export="semua">Buka Teks CSV (Semua Data)</button>
+            <button type="button" class="btn-success" style="background:#2563eb;" data-export="sesuai">Buka Teks CSV (Sesuai)</button>
+            <button type="button" class="btn-success" style="background:#ea580c;" data-export="luar">Buka Teks CSV (Di Luar)</button>
+          </div>
+
+          <div id="csvDisplayBox" class="csv-display-box" style="display: none;">
+            <h3 id="csvBoxTitle" style="margin:0 0 8px;">📑 Teks Data CSV</h3>
+            <p class="helper-text" style="margin-bottom:12px;">Pencet tombol ing ngisor iki kanggo copy kabeh teks, terus <b>Paste (Ctrl+V)</b> nang Excel / Google Sheets:</p>
+            <button id="copyCsvBtn" type="button" class="btn-primary" style="width:auto; margin-bottom:10px; padding:10px 20px;">📋 Copy Teks CSV</button>
+            <textarea id="csvTextArea" readonly style="min-height:220px; font-family:monospace; font-size:13px;"></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="import-grid">
+            <section class="import-panel">
+              <h3>Import dari File JSON</h3>
+              <label for="jsonFile">Pilih file backup JSON</label>
+              <input id="jsonFile" type="file" accept=".json,application/json">
+              <div class="mode-row">
+                <label><input type="radio" name="fileMode" value="merge" checked=""> Gabung data</label>
+                <label><input type="radio" name="fileMode" value="replace"> Timpa data lama</label>
+              </div>
+              <button id="importFileButton" type="button" class="btn-primary">Import File JSON</button>
+            </section>
+            <section class="import-panel">
+              <h3>Import dari Tempelan JSON</h3>
+              <label for="jsonPaste">Tempel data JSON</label>
+              <textarea id="jsonPaste" placeholder="Tempel array JSON data paket di sini..."></textarea>
+              <div class="mode-row">
+                <label><input type="radio" name="pasteMode" value="merge" checked=""> Gabung data</label>
+                <label><input type="radio" name="pasteMode" value="replace"> Timpa data lama</label>
+              </div>
+              <button id="importPasteButton" type="button" class="btn-primary">Import JSON Tempelan</button>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="sesuai-row-template">
+    <tr>
+      <td class="row-tanggal"></td><td class="row-nama"></td><td class="row-kelas"></td>
+      <td><span class="badge badge-success row-status"></span></td>
+      <td>
+        <button type="button" class="btn-danger delete-trigger">Hapus</button>
+        <span class="delete-confirmation hidden-state">
+          <span>Yakin?</span>
+          <button type="button" class="btn-danger delete-confirm">Ya</button>
+          <button type="button" class="btn-cancel delete-cancel">Batal</button>
+        </span>
+      </td>
+    </tr>
+  </template>
+
+  <template id="luar-row-template">
+    <tr>
+      <td class="row-tanggal"></td><td class="row-nama"></td><td class="row-kelas"></td><td class="row-keterangan"></td>
+      <td><span class="badge row-status"></span></td>
+      <td>
+        <button type="button" class="btn-danger delete-trigger">Hapus</button>
+        <span class="delete-confirmation hidden-state">
+          <span>Yakin?</span>
+          <button type="button" class="btn-danger delete-confirm">Ya</button>
+          <button type="button" class="btn-cancel delete-cancel">Batal</button>
+        </span>
+      </td>
+    </tr>
+  </template>
+
+  <script>
+    const jadwalHari = { 1:["12"], 2:["11","10"], 3:["9A","9B"], 4:["9C","9D","9E"], 5:["8A","8B"], 6:["8C","8D","8E"], 0:[] };
+    const namaHari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+    let dataRekap = JSON.parse(localStorage.getItem("rekapPaketData_GH")) || [];
+    let activeFilter = "hari";
+
+    const inputTanggal = document.getElementById("tanggal");
+    const paketForm = document.getElementById("paketForm");
+
+    function saveToLocal() {
+      localStorage.setItem("rekapPaketData_GH", JSON.stringify(dataRekap));
+    }
+
+    function getTodayISO() {
+      const now = new Date();
+      const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+      return local.toISOString().slice(0, 10);
+    }
+
+    function formatTanggal(rawTanggal) {
+      const tanggal = new Date(rawTanggal + "T00:00:00");
+      return namaHari[tanggal.getDay()] + ", " + tanggal.toLocaleDateString("id-ID");
+    }
+
+    function showNotification(message, isError) {
+      const box = document.getElementById("notifAlert");
+      document.getElementById("notifText").textContent = message;
+      box.classList.toggle("alert-error", Boolean(isError));
+      box.classList.toggle("alert-success", !isError);
+      box.classList.add("show");
+      clearTimeout(showNotification.timer);
+      showNotification.timer = setTimeout(() => box.classList.remove("show"), 3600);
+    }
+
+    function updateInfoJadwal() {
+      if (!inputTanggal.value) return;
+      const date = new Date(inputTanggal.value + "T00:00:00");
+      const kelas = jadwalHari[date.getDay()] || [];
+      document.getElementById("infoHariIni").textContent =
+        "Tanggal Dipilih: " + inputTanggal.value + " (" + namaHari[date.getDay()] + ") | Jadwal Kelas: " +
+        (kelas.length ? kelas.join(", ") : "Tidak Ada Jadwal Reguler");
+    }
+
+    function openMainTab(tabId, button) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+      document.getElementById(tabId).classList.add("active");
+      
+      const targetBtn = button || document.querySelector(\`.tab-btn[data-tab="\${tabId}"]\`);
+      if(targetBtn) targetBtn.classList.add("active");
+
+      if (tabId === "tabRekap") applyFilter(activeFilter);
+    }
+
+    function sortedData(records) {
+      return records.slice().sort((a,b) => String(a.raw_tanggal).localeCompare(String(b.raw_tanggal)));
+    }
+
+    function updateLastInput() {
+      const target = document.getElementById("lastInputDetail");
+      if (!dataRekap.length) {
+        target.textContent = "Belum ada data yang di-inputkan.";
+        return;
+      }
+      const item = sortedData(dataRekap).at(-1);
+      target.textContent = item.nama + " (Kelas " + item.kelas + ") - " + item.tgl_formatted +
+        " | Status: " + (item.is_sesuai ? "Sesuai Jadwal" : "Di Luar Jadwal (" + (item.keterangan || "Tanpa Keterangan") + ")");
+    }
+
+    function createEmptyRow(colspan, text) {
+      const row = document.createElement("tr");
+      const cell = document.createElement("td");
+      cell.colSpan = colspan;
+      cell.className = "empty-row";
+      cell.textContent = text;
+      row.appendChild(cell);
+      return row;
+    }
+
+    function deleteItem(id) {
+      dataRekap = dataRekap.filter(i => i.id !== id);
+      saveToLocal();
+      renderAll();
+      showNotification("Data berhasil dihapus.", false);
+    }
+
+    function addDeleteHandlers(row, item) {
+      const trigger = row.querySelector(".delete-trigger");
+      const confirmation = row.querySelector(".delete-confirmation");
+      const confirmButton = row.querySelector(".delete-confirm");
+      const cancelButton = row.querySelector(".delete-cancel");
+      trigger.addEventListener("click", () => {
+        trigger.classList.add("hidden-state");
+        confirmation.classList.remove("hidden-state");
+      });
+      cancelButton.addEventListener("click", () => {
+        confirmation.classList.add("hidden-state");
+        trigger.classList.remove("hidden-state");
+      });
+      confirmButton.addEventListener("click", () => deleteItem(item.id));
+    }
+
+    function createLiveRow(item, type) {
+      const template = document.getElementById(type === "sesuai" ? "sesuai-row-template" : "luar-row-template");
+      const fragment = template.content.cloneNode(true);
+      const row = fragment.querySelector("tr");
+      row.querySelector(".row-tanggal").textContent = item.tgl_formatted;
+      row.querySelector(".row-nama").textContent = item.nama;
+      row.querySelector(".row-kelas").textContent = item.kelas;
+      const status = row.querySelector(".row-status");
+      if (type === "sesuai") {
+        status.textContent = "Sesuai Jadwal";
+      } else {
+        row.querySelector(".row-keterangan").textContent = item.keterangan || "-";
+        status.classList.add(item.keterangan ? "badge-warning" : "badge-danger");
+        status.textContent = item.keterangan ? "Dilegalkan (" + item.keterangan + ")" : "Tidak Sesuai (Tanpa Keterangan)";
+      }
+      addDeleteHandlers(row, item);
+      return row;
+    }
+
+    function renderLiveTables() {
+      const sesuai = sortedData(dataRekap.filter(item => item.is_sesuai));
+      const luar = sortedData(dataRekap.filter(item => !item.is_sesuai));
+      
+      const bodySesuai = document.getElementById("tabelSesuai");
+      const bodyLuar = document.getElementById("tabelLuar");
+      bodySesuai.innerHTML = ""; bodyLuar.innerHTML = "";
+
+      sesuai.forEach(item => bodySesuai.appendChild(createLiveRow(item, "sesuai")));
+      if(!sesuai.length) bodySesuai.appendChild(createEmptyRow(5, "Belum ada data paket sesuai jadwal."));
+
+      luar.forEach(item => bodyLuar.appendChild(createLiveRow(item, "luar")));
+      if(!luar.length) bodyLuar.appendChild(createEmptyRow(6, "Belum ada data paket di luar jadwal."));
+
+      document.getElementById("totalHeaderCount").textContent = dataRekap.length;
+      document.getElementById("countSesuaiLive").textContent = sesuai.length;
+      document.getElementById("countLuarLive").textContent = luar.length;
+      updateLastInput();
+    }
+
+    function getFilteredData(period) {
+      const today = getTodayISO();
+      const current = new Date(today + "T00:00:00");
+      return sortedData(dataRekap.filter(item => {
+        const date = new Date(item.raw_tanggal + "T00:00:00");
+        if (period === "hari") return item.raw_tanggal === today;
+        if (period === "minggu") {
+          const start = new Date(current);
+          const day = start.getDay() || 7;
+          start.setDate(start.getDate() - day + 1);
+          const end = new Date(start);
+          end.setDate(end.getDate() + 6);
+          return date >= start && date <= end;
+        }
+        if (period === "bulan") return date.getMonth() === current.getMonth() && date.getFullYear() === current.getFullYear();
+        return true;
+      }));
+    }
+
+    function applyFilter(period) {
+      activeFilter = period;
+      const filtered = getFilteredData(period);
+      const sesuai = filtered.filter(item => item.is_sesuai).length;
+      document.getElementById("statTotal").textContent = filtered.length;
+      document.getElementById("statSesuai").textContent = sesuai;
+      document.getElementById("statLuar").textContent = filtered.length - sesuai;
+      const body = document.getElementById("tabelRekapPeriodik");
+      body.replaceChildren();
+      if (!filtered.length) {
+        body.appendChild(createEmptyRow(5, "Belum ada data rekap untuk periode ini."));
+        return;
+      }
+      filtered.forEach(item => {
+        const row = document.createElement("tr");
+        const values = [item.tgl_formatted, item.nama, item.kelas];
+        values.forEach(value => { const cell = document.createElement("td"); cell.textContent = value; row.appendChild(cell); });
+        const category = document.createElement("td");
+        const badge = document.createElement("span");
+        badge.className = "badge " + (item.is_sesuai ? "badge-success" : "badge-warning");
+        badge.textContent = item.is_sesuai ? "Sesuai Jadwal" : "Di Luar Jadwal";
+        category.appendChild(badge);
+        const note = document.createElement("td");
+        note.textContent = item.keterangan || "-";
+        row.append(category, note);
+        body.appendChild(row);
+      });
+    }
+
+    function renderAll() {
+      renderLiveTables();
+      applyFilter(activeFilter);
+    }
+
+    function exportCSV(tipe) {
+      const filteredData = tipe === "semua"
+        ? sortedData(dataRekap)
+        : sortedData(dataRekap.filter(item => tipe === "sesuai" ? item.is_sesuai : !item.is_sesuai));
+      if (!filteredData.length) { showNotification("Ora ana data sing bisa di-export, Bos!", true); return; }
+
+      const csvEscape = value => "\\"" + String(value ?? "").replace(/"/g, "\\"\\"") + "\\"";
+      const csvRows = [];
+      if (tipe === "semua") {
+        csvRows.push(["Tanggal Rekap", "Nama", "Kelas", "Kategori Rekap", "Keterangan", "Status Legalitas"].join(","));
+        filteredData.forEach(item => {
+          const kategori = item.is_sesuai ? "Sesuai Jadwal" : "Di Luar Jadwal";
+          const status = item.is_sesuai ? "Sesuai Jadwal" : (item.keterangan ? "Dilegalkan (" + item.keterangan + ")" : "Belum Dilegalkan");
+          csvRows.push([csvEscape(item.tgl_formatted || item.raw_tanggal), csvEscape(item.nama), csvEscape(item.kelas), csvEscape(kategori), csvEscape(item.keterangan || "-"), csvEscape(status)].join(","));
+        });
+      } else if (tipe === "sesuai") {
+        csvRows.push(["Tanggal Rekap", "Nama", "Kelas", "Status"].join(","));
+        filteredData.forEach(item => csvRows.push([csvEscape(item.tgl_formatted || item.raw_tanggal), csvEscape(item.nama), csvEscape(item.kelas), csvEscape("Sesuai Jadwal")].join(",")));
+      } else {
+        csvRows.push(["Tanggal Rekap", "Nama", "Kelas", "Keterangan", "Status Legalitas"].join(","));
+        filteredData.forEach(item => {
+          const status = item.keterangan ? "Dilegalkan (" + item.keterangan + ")" : "Belum Dilegalkan";
+          csvRows.push([csvEscape(item.tgl_formatted || item.raw_tanggal), csvEscape(item.nama), csvEscape(item.kelas), csvEscape(item.keterangan || "-"), csvEscape(status)].join(","));
+        });
+      }
+
+      openMainTab("tabImport");
+      const box = document.getElementById("csvDisplayBox");
+      const textarea = document.getElementById("csvTextArea");
+      document.getElementById("csvBoxTitle").textContent = "📑 Teks Data CSV (" + tipe.toUpperCase() + ")";
+      textarea.value = csvRows.join("\\n");
+      box.style.display = "block";
+      box.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById("copyCsvBtn").addEventListener("click", async () => {
+      const area = document.getElementById("csvTextArea");
+      area.select();
+      try {
+        await navigator.clipboard.writeText(area.value);
+        showNotification("✅ Teks CSV berhasil di-copy! Tinggal paste nang Excel.", false);
+      } catch(_) {
+        showNotification("Gagal copy otomatis, silakan salin manual.", true);
+      }
+    });
+
+    function downloadFile(content, filename, type) {
+      const url = URL.createObjectURL(new Blob([content], {type}));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 200);
+    }
+
+    paketForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const rawTanggal = inputTanggal.value;
+      const nama = document.getElementById("nama").value.trim();
+      const kelas = document.getElementById("kelas").value;
+      const keterangan = document.getElementById("keterangan").value.trim();
+      if (!rawTanggal || !nama || !kelas) return;
+      const date = new Date(rawTanggal + "T00:00:00");
+      
+      const newItem = {
+        id: Date.now(),
+        raw_tanggal: rawTanggal,
+        tgl_formatted: formatTanggal(rawTanggal),
+        nama, kelas, keterangan,
+        is_sesuai: (jadwalHari[date.getDay()] || []).includes(kelas)
+      };
+
+      dataRekap.push(newItem);
+      saveToLocal();
+      renderAll();
+
+      document.getElementById("nama").value = "";
+      document.getElementById("kelas").value = "";
+      document.getElementById("keterangan").value = "";
+      showNotification("✅ Data berhasil disimpan!", false);
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(button => button.addEventListener("click", () => openMainTab(button.dataset.tab, button)));
+    document.querySelectorAll(".sub-tab-btn").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll(".sub-tab-btn").forEach(el => el.classList.remove("active"));
+      button.classList.add("active");
+      applyFilter(button.dataset.filter);
+    }));
+
+    document.querySelectorAll("[data-export]").forEach(button => button.addEventListener("click", () => exportCSV(button.dataset.export)));
+
+    document.getElementById("backupJsonButton").addEventListener("click", () => {
+      if (!dataRekap.length) { showNotification("Belum ada data untuk dibuatkan backup.", true); return; }
+      downloadFile(JSON.stringify(dataRekap,null,2), "Backup_Rekap_Paket_" + getTodayISO() + ".json", "application/json");
+      showNotification("File backup JSON berhasil disiapkan.", false);
+    });
+
+    document.getElementById("importFileButton").addEventListener("click", async () => {
+      const fileInput = document.getElementById("jsonFile");
+      const file = fileInput.files[0];
+      if (!file) return;
+      try {
+        const data = JSON.parse(await file.text());
+        const mode = document.querySelector('input[name="fileMode"]:checked').value;
+        dataRekap = mode === "merge" ? [...dataRekap, ...data] : data;
+        saveToLocal();
+        renderAll();
+        fileInput.value = "";
+        showNotification("✅ Import file JSON berhasil!", false);
+      } catch (_) { showNotification("File JSON tidak valid.", true); }
+    });
+
+    document.getElementById("importPasteButton").addEventListener("click", () => {
+      const textarea = document.getElementById("jsonPaste");
+      if (!textarea.value.trim()) return;
+      try {
+        const data = JSON.parse(textarea.value);
+        const mode = document.querySelector('input[name="pasteMode"]:checked').value;
+        dataRekap = mode === "merge" ? [...dataRekap, ...data] : data;
+        saveToLocal();
+        renderAll();
+        textarea.value = "";
+        showNotification("✅ Import tempelan JSON berhasil!", false);
+      } catch (_) { showNotification("Format JSON tidak valid.", true); }
+    });
+
+    inputTanggal.value = getTodayISO();
+    inputTanggal.addEventListener("change", updateInfoJadwal);
+    updateInfoJadwal();
+    renderAll();
+  </script>
+</body>
+</html>`;
+
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      const blob = new Blob([htmlCode], { type: 'text/html;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'index.html';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+    });
+  </script>
+</body>
+</html>
